@@ -1,0 +1,17 @@
+@mixin rubik {
+	//noinspection CssNoGenericFontName
+	font-family: "Self-Rubik";
+	font-weight: 300 900;
+}
+
+@font-face {
+	@include rubik;
+	src: url(/fonts/Rubik.ttf) format("truetype");
+	font-style: normal;
+}
+
+@font-face {
+	@include rubik;
+	src: url(/fonts/Rubik-Italic.ttf) format("truetype");
+	font-style: italic;
+}

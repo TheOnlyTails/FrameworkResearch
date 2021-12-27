@@ -32,13 +32,13 @@ const App = () => {
 		<label htmlFor="show-done">Show done</label>
 		<ul>{
 			(showFinished ? items : undoneItems).map((item, index) =>
-					<li className={ `item ${ item.done ? "done" : "" }` } onClick={ () => {
-						const newItems = [...items]
-						newItems[index] = { ...item, done: !item.done }
-						setItems(newItems)
-					} }>
-						{ item.value }
-					</li>
+				<li className={ `item ${ item.done ? "done" : "" }` } onClick={ () => {
+					const newItems = [...items]
+					newItems[index] = { ...item, done: !item.done }
+					setItems(newItems)
+				} }>
+					{ item.value }
+				</li>,
 			)
 		}</ul>
 	</>
