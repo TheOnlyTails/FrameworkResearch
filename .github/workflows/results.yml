@@ -23,4 +23,4 @@ jobs:
         node-version: '16'
         cache: 'pnpm'
     - run: cd packages/testing
-    - run: pnpm results
+    - run: pnpm run results
