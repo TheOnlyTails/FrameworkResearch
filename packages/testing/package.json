@@ -2,11 +2,10 @@
 	"name": "framework-research-testing",
 	"version": "1.0.0",
 	"scripts": {
-		"results": "tsm index.ts"
+		"results": "tsm ./index.ts"
 	},
 	"dependencies": {
-		"chrome-launcher": "^0.15.0",
-		"lighthouse": "^9.2.0",
+		"node-fetch": "^3.1.0",
 		"tsm": "^2.2.1"
 	},
 	"devDependencies": {

@@ -1,24 +1,19 @@
-import * as chromeLauncher from "chrome-launcher"
-import lighthouse from "lighthouse"
-import lighthouseConfig from "./lighthouse-config"
+import fetch from "node-fetch"
 
 (async () => {
   const urls = [
     "https://framework-research-svelte.vercel.app/",
     "https://framework-research-react.vercel.app/",
+    "https://framework-research-vue.vercel.app/",
   ]
-  const chrome = await chromeLauncher.launch({ chromeFlags: ["--headless"] })
+
   for (const url of urls) {
-    const runnerResult = await lighthouse(url, {
-      output: "html",
-      onlyCategories: ["performance"],
-      port: chrome.port,
-    }, lighthouseConfig)
+    console.log(`Time to interactive for: ${url}`)
+    const { lighthouseResult } = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${ encodeURIComponent(url) }&category=PERFORMANCE`)
+      .then(r => r.json())
 
-    // `.lhr` is the Lighthouse Result as a JS object
-    console.log("Report is done for", runnerResult.lhr.finalUrl)
-    console.log("Performance was", runnerResult.lhr.categories.performance.auditRefs.find(audit => audit.id === "interactive"))
+    const timeToInteractive = lighthouseResult.audits.interactive.displayValue
+
+    console.log(`result: ${timeToInteractive}`)
   }
-
-  await chrome.kill()
 })()

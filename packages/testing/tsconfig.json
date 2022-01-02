@@ -4,7 +4,8 @@
 		"target": "esnext",
 		"sourceMap": true,
 		"moduleResolution": "node",
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"esModuleInterop": true
 	},
 	"exclude": [
 		"node_modules"
