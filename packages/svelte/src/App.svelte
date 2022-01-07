@@ -12,7 +12,7 @@
 
 	const addItem = () => {
 		if (value !== "" && value) {
-			items = [{ value, done: false }, ...items]
+			items = [...items, { value, done: false }]
 			value = ""
 		}
 	}
