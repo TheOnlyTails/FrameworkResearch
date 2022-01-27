@@ -29,7 +29,10 @@
 <label for="show-done">Show done</label>
 <ul>
 	{#each (showFinished ? items : undoneItems) as item}
-		<li class="item" on:click={() => item.done = !item.done} class:done={item.done}>
+		<li class="item"
+		    on:click={() => item.done = !item.done}
+		    style:text-decoration={item.done ? "line-through" : ""}
+		>
 			{item.value}
 		</li>
 	{/each}
